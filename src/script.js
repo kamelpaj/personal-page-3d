@@ -29,6 +29,9 @@ const matcapKnotTexture = textureLoader.load("/textures/matcaps/gris.png");
  * Fonts
  */
 const fontLoader = new THREE.FontLoader();
+let nameText;
+let roleText;
+
 fontLoader.load("/fonts/helvetiker_bold.typeface.json", (font) => {
   const nameTextGeometry = new THREE.TextBufferGeometry("ADAM\nHERMANSSON", {
     font,
@@ -59,8 +62,8 @@ fontLoader.load("/fonts/helvetiker_bold.typeface.json", (font) => {
   const material = new THREE.MeshMatcapMaterial({
     matcap: matcapTexture,
   });
-  const nameText = new THREE.Mesh(nameTextGeometry, material);
-  const roleText = new THREE.Mesh(roleTextGeometry, material);
+  nameText = new THREE.Mesh(nameTextGeometry, material);
+  roleText = new THREE.Mesh(roleTextGeometry, material);
 
   //roleText.position.x = -1;
   roleText.position.y = -1;
@@ -153,15 +156,27 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const clock = new THREE.Clock();
 
 const tick = () => {
-  const elapsedTime = clock.getElapsedTime() * 0.1;
+  const elapsedTime = clock.getElapsedTime();
 
   knots.forEach((knot, i) => {
-    knot.rotation.x = elapsedTime * Math.PI * 1.5;
-    knot.rotation.y = elapsedTime * Math.PI * 1.5;
+    knot.rotation.x = elapsedTime * 0.1 * Math.PI * 1.5;
+    knot.rotation.y = elapsedTime * 0.1 * Math.PI * 1.5;
 
-    knot.position.x = 5 * Math.cos(elapsedTime + i);
-    knot.position.y = 5 * Math.sin(elapsedTime + i * 1.1);
+    knot.position.x = 5 * Math.cos(elapsedTime * 0.1 + i);
+    knot.position.y = 5 * Math.sin(elapsedTime * 0.1 + i * 1.1);
   });
+
+  if (nameText && roleText) {
+    //nameText.rotation.z = -0.2 - (1 + Math.sin(elapsedTime / 1.5)) / 20;
+    nameText.rotation.x = Math.cos(elapsedTime / 4) / 8;
+    nameText.rotation.y = Math.sin(elapsedTime / 4) / 8;
+    nameText.position.y = (1 + Math.sin(elapsedTime / 1.5)) / 10;
+
+    roleText.rotation.z = -(1 + Math.sin(elapsedTime / 1.5)) / 20;
+    roleText.rotation.x = Math.cos(elapsedTime / 4) / 8;
+    roleText.rotation.y = Math.sin(elapsedTime / 4) / 8;
+    //roleText.position.y = (1 + Math.sin(elapsedTime / 1.5)) / 10;
+  }
 
   // Update controls
   controls.update();
