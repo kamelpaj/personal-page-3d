@@ -1,17 +1,18 @@
-# Personal website
-https://adamhermansson.com/
+# React Three Fiber TS boilerplate
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+Just a simple boilerplate to start off a web 3D project. Boilerplate code taken from [React Three Fiber documentation](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction).
 
-``` bash
-# Install dependencies (only the first time)
-npm install
+### Whats included
 
-# Run the local server at localhost:8080
-npm run dev
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Three / Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [React Three / Drei](https://docs.pmnd.rs/drei/introduction)
+- [Three.js (with typings!)](https://threejs.org/)
 
-# Build for production in the dist/ directory
-npm run build
-```
+### Available scripts
+
+- `npm install`
+- `npm start`
+- `npm run build`
+- `npm run test`
