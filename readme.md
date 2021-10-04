@@ -1,4 +1,5 @@
-# React Three Fiber TS boilerplate
+# Personal Page 3D
+My personal webpage in 3D 😊
 
 Just a simple boilerplate to start off a web 3D project. Boilerplate code taken from [React Three Fiber documentation](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction).
 
