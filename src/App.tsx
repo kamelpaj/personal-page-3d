@@ -15,7 +15,7 @@ function App() {
           <RotatingStars />
 
           <Center>
-            <Face scale={10} />
+            <Face scale={9} />
           </Center>
           <OrbitControls />
         </Canvas>

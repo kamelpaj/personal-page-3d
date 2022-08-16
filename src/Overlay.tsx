@@ -27,7 +27,7 @@ export default function Overlay() {
             letterSpacing: "-0.05em",
           }}
         >
-          Hej, <br />
+          Hi, <br />
           I'm Adam
         </h1>
       </div>
