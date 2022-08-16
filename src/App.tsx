@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls, Loader } from "@react-three/drei";
 import "./styles.css";
 import Face from "./Face";
 import RotatingStars from "./Stars";
@@ -8,7 +8,7 @@ import RotatingStars from "./Stars";
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<span>loading...</span>}>
+      <Suspense fallback={null}>
         <Canvas>
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
@@ -20,6 +20,7 @@ function App() {
           <OrbitControls />
         </Canvas>
       </Suspense>
+      <Loader />
     </div>
   );
 }
